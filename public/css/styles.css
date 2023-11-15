@@ -10,6 +10,8 @@
   --input-box-shadow: rgba(194, 195, 214, 0, 0.5);
   --input-color: #494c6b;
   --button-color: #393a4b;
+  --bg-main: #fafafa;
+  --bg-tarefas: #fff;
 }
 
 header {
@@ -56,4 +58,14 @@ header form button {
   border: none;
   color: #fff;
   background-color: var(--button-color);
+}
+
+main {
+  background-color: var(--bg-main);
+  min-height: calc(100vh - 12.5rem);
+  padding-inline: 1.5rem;
+}
+
+.tarefas {
+  background-color: var(--bg-tarefas);
 }
