@@ -15,19 +15,20 @@
   <body>
     <header>
       <div>
-        <h1>To Do</h1>
-        <img src="/img/moon-icon.svg" alt="icone de lua" />
+        <div>
+          <h1>To Do</h1>
+          <img src="/img/moon-icon.svg" alt="icone de lua" />
+        </div>
+        <form action="">
+          <input
+            type="text"
+            id="nova-tarefa"
+            placeholder="Criar uma nova tarefa"
+            name="novaTarefa"
+          />
+          <button type="submit">Criar</button>
+        </form>
       </div>
-
-      <form action="">
-        <input
-          type="text"
-          id="nova-tarefa"
-          placeholder="Criar uma nova tarefa"
-          name="novaTarefa"
-        />
-        <button type="submit">Criar</button>
-      </form>
     </header>
     {{{body}}}
   </body>
