@@ -45,6 +45,8 @@ body.dark {
 
 body {
   background-color: var(--bg-body);
+  /* transição suave do tema */
+  transition: all 0.4s;
 }
 
 header {
@@ -67,6 +69,12 @@ header div div {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2.5rem;
+}
+
+header button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 header div h1 {
