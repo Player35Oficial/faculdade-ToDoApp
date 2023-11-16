@@ -9,6 +9,30 @@ app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
 
+// converter dados do formulário em objetos javascript
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+// rotas
+app.post("/criar", (req, res) => {
+  const { descricao } = req.body;
+  const completa = 0;
+
+  const sql = `INSERT INTO tarefas(descricao, completa) VALUES('${descricao}', '${completa}')`;
+
+  conexao.query(sql, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    res.redirect("/");
+  });
+});
+
 app.get("/", (req, res) => {
   res.render("home");
 });
