@@ -16,7 +16,24 @@ app.use(
   })
 );
 
+app.use(express.json());
+
 // rotas
+app.post("/completar", (req, res) => {
+  const id = req.body.id;
+  console.log(id);
+
+  const sql = `UPDATE tarefas set completa = '1' WHERE id = ${id}`;
+
+  conexao.query(sql, (erro) => {
+    if (erro) {
+      return console.log(erro);
+    }
+
+    res.redirect("/");
+  });
+});
+
 app.post("/criar", (req, res) => {
   const { descricao } = req.body;
   const completa = 0;
@@ -43,12 +60,12 @@ app.get("/", (req, res) => {
 
     const tarefas = dados.map((dado) => {
       return {
-        id: dados.id,
+        id: dado.id,
         descricao: dado.descricao,
         completa: dado.completa === 0 ? false : true,
       };
     });
-
+    console.log(tarefas);
     res.render("home", { tarefas });
   });
 });
