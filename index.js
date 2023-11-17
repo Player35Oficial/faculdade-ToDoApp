@@ -34,6 +34,22 @@ app.post("/criar", (req, res) => {
 });
 
 app.get("/", (req, res) => {
+  const sql = "SELECT * from tarefas";
+
+  conexao.query(sql, (erro, dados) => {
+    if (erro) {
+      return console.log(erro);
+    }
+
+    const tarefas = dados.map((dado) => {
+      return {
+        id: dados.id,
+        descricao: dado.descricao,
+        completa: dado.completa === 0 ? false : true,
+      };
+    });
+  });
+
   res.render("home");
 });
 
