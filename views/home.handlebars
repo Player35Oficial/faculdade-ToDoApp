@@ -1,53 +1,55 @@
-<main>
-  <section class="tarefas">
-    {{#each tarefas}}
-      <div class="tarefa">
-        <form action="">
-          {{#if this.completa}}
-            <div class="completa">
-              <input
-                type="checkbox"
-                id="tarefa-{{this.id}}"
-                checked
-                onchange="descompletarTarefa({{this.id}})"
+{{#if tarefas}}
+  <main>
+    <section class="tarefas">
+      {{#each tarefas}}
+        <div class="tarefa">
+          <form action="">
+            {{#if this.completa}}
+              <div class="completa">
+                <input
+                  type="checkbox"
+                  id="tarefa-{{this.id}}"
+                  checked
+                  onchange="descompletarTarefa({{this.id}})"
+                />
+                <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
+              </div>
+            {{else}}
+              <div>
+                <input
+                  type="checkbox"
+                  id="tarefa-{{this.id}}"
+                  onchange="completarTarefa({{this.id}})"
+                />
+                <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
+              </div>
+            {{/if}}
+            <button onclick="excluirTarefa({{this.id}})">
+              <img
+                src="/img/x-icon.svg"
+                alt="ícone de x para excluir uma tarefa"
               />
-              <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
-            </div>
-          {{else}}
-            <div>
-              <input
-                type="checkbox"
-                id="tarefa-{{this.id}}"
-                onchange="completarTarefa({{this.id}})"
-              />
-              <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
-            </div>
-          {{/if}}
-          <button onclick="excluirTarefa({{this.id}})">
-            <img
-              src="/img/x-icon.svg"
-              alt="ícone de x para excluir uma tarefa"
-            />
-          </button>
-        </form>
+            </button>
+          </form>
+        </div>
+      {{/each}}
+      <div class="informacoes">
+        <p>{{quantidadeTarefasAtivas}} Tarefa(s) Ativa(s)</p>
+
+        <section class="botoes">
+          <a href="/" class="active">Todas</a>
+          <a href="/ativas">Ativas</a>
+          <a href="/completas">Completas</a>
+        </section>
+
+        <a href="/limpartarefas">Limpar Tarefas</a>
       </div>
-    {{/each}}
-    <div class="informacoes">
-      <p>{{quantidadeTarefasAtivas}} Tarefa(s) Ativa(s)</p>
+    </section>
 
-      <section class="botoes">
-        <a href="/" class="active">Todas</a>
-        <a href="/ativas">Ativas</a>
-        <a href="/completas">Completas</a>
-      </section>
-
-      <a href="">Limpar Tarefas</a>
-    </div>
-  </section>
-
-  <section class="botoes">
-    <a href="/" class="active">Todas</a>
-    <a href="/ativas">Ativas</a>
-    <a href="/completas">Completas</a>
-  </section>
-</main>
+    <section class="botoes">
+      <a href="/" class="active">Todas</a>
+      <a href="/ativas">Ativas</a>
+      <a href="/completas">Completas</a>
+    </section>
+  </main>
+{{/if}}
