@@ -3,7 +3,7 @@
     {{#each tarefas}}
       <div class="tarefa">
         <form action="">
-            <div class="completa">
+          <div>
             <div>
               <input
                 type="checkbox"
@@ -12,6 +12,7 @@
               />
               <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
             </div>
+          </div>
           <button>
             <img
               src="/img/x-icon.svg"
@@ -22,10 +23,10 @@
       </div>
     {{/each}}
     <div class="informacoes">
-      <p>{{quantidadeTarefasAtivas}} Tarefas Ativas</p>
+      <p>{{quantidadeTarefas}} Tarefas Ativas</p>
 
       <section class="botoes">
-        <a href="/" >Todas</a>
+        <a href="/">Todas</a>
         <a href="/ativas" class="active">Ativas</a>
         <a href="/completas">Completas</a>
       </section>
@@ -35,7 +36,7 @@
   </section>
 
   <section class="botoes">
-    <a href="/" >Todas</a>
+    <a href="/">Todas</a>
     <a href="/ativas" class="active">Ativas</a>
     <a href="/completas">Completas</a>
   </section>
